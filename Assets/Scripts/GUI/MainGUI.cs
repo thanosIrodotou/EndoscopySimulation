@@ -30,7 +30,7 @@ public class MainGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Screen.SetResolution(1024, 768, true, 60);			
+		Screen.SetResolution(1440, 900, true, 60);			
 		mySkin = Resources.Load("Extra GUI Skins/MetalGUISkin") as GUISkin;
 		sideCamTexture.enabled = false;
 		birdsEyeTexture.enabled = false;	
@@ -122,7 +122,7 @@ public class MainGUI : MonoBehaviour
 		
 		//GUILayout.BeginHorizontal("box");
 		GUILayout.Label("Length Discovered:");
-		GUILayout.Box(length.ToString());
+		GUILayout.Box(length.ToString() + " cm");
 		GUILayout.EndHorizontal();
 		
 		GUILayout.EndArea();

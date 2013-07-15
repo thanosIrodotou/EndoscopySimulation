@@ -51,7 +51,7 @@ public class endSceneGUI : MonoBehaviour
 		GUILayout.Space(30);
 		GUILayout.Label("Total Time: " + MainGUI.niceTime, bodyStyle);
 		//GUILayout.Space(30);
-		GUILayout.Label("Length Examined: " + MainGUI.length, bodyStyle);
+		GUILayout.Label("Length Examined: " + MainGUI.length + " cm", bodyStyle);
 		GUILayout.Label("Lesions Discovered: " + MainGUI.lesions, bodyStyle);
 		GUILayout.Label("Patient Discomfort Estimate (1-10): " + MainGUI.discomfortLevel, bodyStyle);
 	}
