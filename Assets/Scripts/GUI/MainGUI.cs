@@ -57,7 +57,7 @@ public class MainGUI : MonoBehaviour
 			Time.timeScale = 0;
 		}	
 	
-		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetKey (KeyCode.JoystickButton0))
+		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetButtonDown("SideCam"))
 		{
 			print ("Space Pressed");
 			if (sideCamToggle == false)
@@ -74,7 +74,7 @@ public class MainGUI : MonoBehaviour
 			}
 		}	
 		
-		if (Input.GetKeyDown(KeyCode.B)  || Input.GetKey (KeyCode.JoystickButton3))
+		if (Input.GetKeyDown(KeyCode.B)  || Input.GetButtonDown("BirdsEyeCam"))
 		{
 			print ("B Pressed");
 			if (birdsEyeToggle == false)

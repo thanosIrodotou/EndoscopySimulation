@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class LimitPositionCollision : MonoBehaviour 
+public class LimitEndPositionCollision : MonoBehaviour 
 {
 	public GameObject fpsObject;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+	
 	}
 	
 	// Update is called once per frame
@@ -19,12 +19,14 @@ public class LimitPositionCollision : MonoBehaviour
 	
 	void OnTriggerEnter(Collider myTrigger) 
 	{
+		print (myTrigger.name);
 		if (myTrigger.gameObject.name == fpsObject.name)
 		{
-			print ("sending...");			
-			LimitPosition script = fpsObject.GetComponent<LimitPosition>();				
-			script.positionLimitToggle = true;
-			script.handlePosition(true);			
+			print ("sending...");	
+			LimitPosition script;
+			script = myTrigger.GetComponent<LimitPosition>();				
+			script.endPosLimitToggle = true;
+			script.limitEndingPosition(true);			
 		}
-	}
+	}	
 }

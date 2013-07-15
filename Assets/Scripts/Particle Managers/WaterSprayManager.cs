@@ -17,7 +17,7 @@ public class WaterSprayManager : MonoBehaviour
 		
 		if (waterPump.emit == false) 
 		{
-			if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey (KeyCode.JoystickButton1))
+			if(Input.GetKey(KeyCode.LeftShift) || Input.GetButton("WaterPump"))
 			{	        
 				Debug.Log("WaterPump DEACTIVATED");
 				waterPump.emit = true;
@@ -25,7 +25,7 @@ public class WaterSprayManager : MonoBehaviour
 		}
 		else if (waterPump.emit == true)
 		{
-			if(Input.GetKeyUp(KeyCode.LeftShift)  || Input.GetKey (KeyCode.JoystickButton1))
+			if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetButton("WaterPump"))
 			{
 				Debug.Log("WaterPump ACTIVATED");	       
 				waterPump.emit = false;

@@ -70,8 +70,15 @@ public class MouseLook : MonoBehaviour {
 		}
 		else if (axes == RotationAxes.MouseX)
 		{
-			print (Input.GetAxis("Mouse X") + ", " + transform.rotation);
-			transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);
+			print (transform.localRotation.y);
+			if (transform.localEulerAngles.y <= 90)
+			{
+				transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);	
+			}			
+			else if (transform.localEulerAngles.y >= 270)
+			{
+				transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityX, 0);	
+			}
 		}
 		else
 		{
