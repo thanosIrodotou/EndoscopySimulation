@@ -429,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 285088575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.61266172, y: 2.0683279, z: -.382330716}
-  m_LocalScale: {x: .0430616438, y: .0430616438, z: .0430616438}
+  m_LocalScale: {x: .0358749516, y: .0358749516, z: .0358749516}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!54 &285088580
@@ -439,7 +439,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 285088575}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -759,7 +759,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: 075d6df03ff603a4a81e93b974ed9d44, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 1
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 075d6df03ff603a4a81e93b974ed9d44, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1582,7 +1582,7 @@ MonoBehaviour:
   m_Name: 
   m_CacheOption: 2
   m_ImpactShape: 1
-  m_ImpactType: 0
+  m_ImpactType: 1
   m_ForceResistance: 1
   m_MaxForcePerImpact: 1.10000002
   m_ForceMultiplier: .100000001
@@ -1941,7 +1941,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1119465386
 Transform:
@@ -2535,7 +2535,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: movement.maxForwardSpeed
-      value: .100000001
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: movement.maxSidewaysSpeed
@@ -2683,15 +2683,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: .374676436
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_BackGroundColor.g
-      value: .306304306
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_BackGroundColor.b
-      value: .820895553
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_RenderingPath
@@ -2820,6 +2820,10 @@ Prefab:
     - target: {fileID: 2000000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
       propertyPath: m_TargetTexture
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d4133d5d30b644bd87802a347eaccbe, type: 2}
@@ -2977,6 +2981,7 @@ GameObject:
   - 114: {fileID: 1826436512}
   - 81: {fileID: 1826436511}
   - 114: {fileID: 1826436517}
+  - 114: {fileID: 1826436518}
   m_Layer: 0
   m_Name: FrontCam
   m_TagString: MainCamera
@@ -3032,7 +3037,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .374676436, g: .306304306, b: .820895553, a: 1}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -3138,6 +3143,46 @@ MonoBehaviour:
   birdsEyeToggle: 0
   birdsEyeTexture: {fileID: 616158145}
   sideCamTexture: {fileID: 611928151}
+--- !u!114 &1826436518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1826436510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0401554a0e6f9466db3c1a798d358b8c, type: 3}
+  m_Name: 
+  tweenName: 
+  playAutomatically: 1
+  delay: 0
+  type: 32
+  showIconInInspector: 1
+  keys:
+  - amount
+  - time
+  indexes: 0000000000000000
+  metadatas:
+  - 
+  - 
+  ints: 
+  floats:
+  - 10
+  bools: 
+  strings: []
+  vector3s:
+  - {x: .00999999978, y: 0, z: .00999999978}
+  colors: []
+  spaces: 
+  easeTypes: 
+  loopTypes: 
+  gameObjects: []
+  transforms: []
+  audioClips: []
+  audioSources: []
+  vector3Arrays: []
+  transformArrays: []
+  paths: []
 --- !u!1 &1876994939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,7 +3577,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2114403417
 Transform:
@@ -3574,7 +3619,7 @@ MonoBehaviour:
   canControl: 1
   useFixedUpdate: 1
   movement:
-    maxForwardSpeed: .100000001
+    maxForwardSpeed: .300000012
     maxSidewaysSpeed: .200000003
     maxBackwardsSpeed: .200000003
     slopeSpeedMultiplier:
