@@ -30,7 +30,7 @@ public class MainGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Screen.SetResolution(1440, 900, true, 60);			
+		Screen.SetResolution(1920, 1080, true, 60);			
 		mySkin = Resources.Load("Extra GUI Skins/MetalGUISkin") as GUISkin;
 		sideCamTexture.enabled = false;
 		birdsEyeTexture.enabled = false;	
