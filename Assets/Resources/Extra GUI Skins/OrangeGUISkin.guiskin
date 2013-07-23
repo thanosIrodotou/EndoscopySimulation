@@ -77,7 +77,7 @@ MonoBehaviour:
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 2800000, guid: 88ba6591cd11bb27d0003f1ba220b639, type: 3}
-      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+      m_TextColor: {r: .222443938, g: .222443938, b: .222443938, a: 1}
     m_Active:
       m_Background: {fileID: 2800000, guid: 1b9a6591cd11bb27d0003f1ba220b639, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
@@ -117,8 +117,8 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
+    m_FontSize: 13
+    m_FontStyle: 1
     m_Alignment: 4
     m_WordWrap: 0
     m_RichText: 1
@@ -126,7 +126,7 @@ MonoBehaviour:
     m_ImagePosition: 0
     m_ContentOffset: {x: 0, y: 0}
     m_FixedWidth: 0
-    m_FixedHeight: 24
+    m_FixedHeight: 35
     m_StretchWidth: 1
     m_StretchHeight: 0
   m_toggle:
@@ -1133,7 +1133,7 @@ MonoBehaviour:
     m_StretchWidth: 1
     m_StretchHeight: 0
   m_ScrollView:
-    m_Name: 
+    m_Name: scrollview
     m_Normal:
       m_Background: {fileID: 0}
       m_TextColor: {r: 0, g: 0, b: 0, a: 1}

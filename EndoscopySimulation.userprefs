@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Imported\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/EndTrainingGUI.cs">
     <Files>
-      <File FileName="Assets\Scripts\GUI\SideCamGUI.cs" Line="12" Column="3" />
-      <File FileName="Assets\Imported\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" Line="55" Column="4" />
+      <File FileName="Assets/Scripts/Controllers/TrainingController.cs" Line="48" Column="27" />
+      <File FileName="Assets/Scripts/GUI/EndTrainingGUI.cs" Line="65" Column="78" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
