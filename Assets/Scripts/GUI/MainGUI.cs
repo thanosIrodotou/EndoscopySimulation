@@ -19,17 +19,18 @@ public class MainGUI : MonoBehaviour
 	private bool pauseToggle = false;
 	public bool sideCamToggle = false;	
 	public bool birdsEyeToggle = false;
-	public GUITexture birdsEyeTexture;
 	public GUITexture sideCamTexture;
+	public GUITexture birdsEyeTexture;
 
 	void Awake() 
 	{	
-		startTime = Time.time;	
+		//startTime = Time.time;	
 	}
 	
 	// Use this for initialization
 	void Start () 
 	{
+		startTime = Time.time;
 		Screen.SetResolution(1920, 1080, true, 60);			
 		mySkin = Resources.Load("Extra GUI Skins/MetalGUISkin") as GUISkin;
 		sideCamTexture.enabled = false;
@@ -46,7 +47,7 @@ public class MainGUI : MonoBehaviour
 	
 		if (isTerminated == true)
 		{
-			Application.LoadLevelAsync(5);
+			Application.LoadLevel(5);
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -64,6 +65,7 @@ public class MainGUI : MonoBehaviour
 			{
 				sideCamToggle = true;
 				sideCamTexture.enabled = true;
+				
 				print ("sideCam On");
 			}
 			else if (sideCamToggle == true)

@@ -12,9 +12,8 @@ public class endSceneGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//DontDestroyOnLoad(gameObject);
-		//Screen.SetResolution(1024, 768, true, 60);	
-		print (Screen.width);
+		//Screen.SetResolution(1920, 1080, true, 60);	
+		//print (Screen.width);
 	}
 	
 	void Awake () 
@@ -33,15 +32,25 @@ public class endSceneGUI : MonoBehaviour
 
 		windowRect = GUILayout.Window(0, windowRect, popUp, "", GUILayout.Width(300), GUILayout.Height(250));		
 
-		GUILayout.BeginArea(new Rect((Screen.width -250)/2, (Screen.height - 80), 250,80));
+		GUILayout.BeginArea(new Rect((Screen.width -250)/2, (Screen.height + 150)/2, 250,250));
 		if(GUILayout.Button("Restart Simulation?", GUILayout.Width(250)))
 		{
-			Application.LoadLevelAsync(1);
+			Application.LoadLevel(1);
 		}
+		
+		GUILayout.Space(10);
+		
 		if(GUILayout.Button("Select Scenario", GUILayout.Width(250)))
 		{
-			Application.LoadLevelAsync(2);
+			Application.LoadLevel(2);
 		}
+		
+		GUILayout.Space(10);
+		
+		if(GUILayout.Button("Quit Simulation", GUILayout.Width(250)))
+		{
+			Application.Quit();
+		}		
 		GUILayout.EndArea();
 	}
 	

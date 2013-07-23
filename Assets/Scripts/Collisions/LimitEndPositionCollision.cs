@@ -19,7 +19,7 @@ public class LimitEndPositionCollision : MonoBehaviour
 	
 	void OnTriggerEnter(Collider myTrigger) 
 	{
-		print (myTrigger.name);
+//		print (myTrigger.name);
 		if (myTrigger.gameObject.name == fpsObject.name)
 		{
 			print ("sending...");	

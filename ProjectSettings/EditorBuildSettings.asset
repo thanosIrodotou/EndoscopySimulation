@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/startScene.unity
   - enabled: 1
-    path: Assets/Scenes/dissertationScene/dissertationScene.unity
+    path: Assets/Scenes/dissertationScene/dissertationSceneScenario2.unity
   - enabled: 1
     path: Assets/Scenes/scenarioScene.unity
   - enabled: 1
@@ -17,3 +17,5 @@ EditorBuildSettings:
     path: Assets/Scenes/creditsScene.unity
   - enabled: 1
     path: Assets/Scenes/endScene.unity
+  - enabled: 1
+    path: Assets/Scenes/dissertationScene/dissertationSceneScenario1.unity

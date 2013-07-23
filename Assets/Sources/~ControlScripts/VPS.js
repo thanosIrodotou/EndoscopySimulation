@@ -9,8 +9,9 @@ function Start ()
 function LateUpdate () {
 	if (!mesh)
 		mesh = FindObjectOfType (Mesh);
-	
+		
 	if (Time.frameCount % 5) {
+	Debug.Log(mesh.name);
 		var vps : int = (mesh.vertexCount / Time.smoothDeltaTime) / 1000;
 		guiText.text = "Vertices per second:\n" + vps + "k";
 		

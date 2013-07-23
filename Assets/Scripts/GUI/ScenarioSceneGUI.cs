@@ -23,30 +23,30 @@ public class ScenarioSceneGUI : MonoBehaviour
 	{
 		GUI.skin = mySkin;								
 
-		GUILayout.BeginArea(new Rect((Screen.width - 250)/2, (Screen.height - 250)/2, 250, 250));
+		GUILayout.BeginArea(new Rect((Screen.width - 300)/2, (Screen.height - 250)/2, 350, 250));
 		
-		if(GUILayout.Button("Senario 1. LOD: Low", GUILayout.Width(250)))
+		if(GUILayout.Button("Senario 1. Navigation & Controls Introduction", GUILayout.Width(300)))
+		{
+			Application.LoadLevelAsync(6);
+		}
+		
+		GUILayout.Space(spacing);
+		
+		if(GUILayout.Button("Scenario 2. Low Interaction", GUILayout.Width(300)))
 		{
 			Application.LoadLevelAsync(1);
 		}
 		
 		GUILayout.Space(spacing);
 		
-		if(GUILayout.Button("Scenario 2. LOD: Medium", GUILayout.Width(250)))
-		{
-			Application.LoadLevelAsync(1);
-		}
-		
-		GUILayout.Space(spacing);
-		
-		if(GUILayout.Button("Scenario 3. LOD: High", GUILayout.Width(250)))
+		if(GUILayout.Button("Scenario 3. Medium Interaction", GUILayout.Width(300)))
 		{
 			Application.LoadLevelAsync(1);
 		}
 		
 		GUILayout.Space(spacing);		
 		
-		if(GUILayout.Button("Back", GUILayout.Width(250)))
+		if(GUILayout.Button("Back", GUILayout.Width(300)))
 		{
 			Application.LoadLevelAsync(0);
 		}
