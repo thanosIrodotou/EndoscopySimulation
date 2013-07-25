@@ -7,8 +7,8 @@ public class LowSimulationController : MonoBehaviour
 	private float startTime;
 	private float ellapsedTime;
 	public GUISkin mySkin;
-	//private int spacing = 5;
 	public static string niceTime;
+	public static string currentDateTime;
 	public static float length = 0f;
 	public static int lesions = 8;
 	public static int discomfortLevel = 10;
@@ -128,7 +128,6 @@ public class LowSimulationController : MonoBehaviour
 		GUILayout.EndHorizontal();
 		
 		GUILayout.EndArea();
-		//print (niceTime);
 		//END OVERLAYS
 		
 		//START BUTTONS	
@@ -150,6 +149,12 @@ public class LowSimulationController : MonoBehaviour
 		GUILayout.Label("Are you sure you want to cancel the simulation?");
 		if(GUILayout.Button("Yes", GUILayout.Width(280)))
 		{
+			PlayerPrefs.SetString("DateTimeDataTaken", System.DateTime.Now.ToString());
+			PlayerPrefs.SetString("TimeSpent", niceTime);	
+			PlayerPrefs.SetFloat("LengthTraveled", length);
+			PlayerPrefs.SetInt("Lesions", lesions);
+			PlayerPrefs.SetInt("Discomfort", discomfortLevel);
+			PlayerPrefs.Save();
 			isTerminated = true;
 		}
 		if(GUILayout.Button("No", GUILayout.Width(280)))

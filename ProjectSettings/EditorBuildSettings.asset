@@ -21,3 +21,5 @@ EditorBuildSettings:
     path: Assets/Scenes/simulationScenes/trainingScene.unity
   - enabled: 1
     path: Assets/Scenes/endTrainingScene.unity
+  - enabled: 1
+    path: Assets/Scenes/statisticsScene.unity

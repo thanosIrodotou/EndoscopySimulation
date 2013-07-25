@@ -40,6 +40,13 @@ public class StartSceneGUI : MonoBehaviour
 		
 		GUILayout.Space(spacing);
 		
+		if(GUILayout.Button("Simulation Statistics", GUILayout.Width(250)))
+		{
+			Application.LoadLevelAsync(8);
+		}
+		
+		GUILayout.Space(spacing);
+		
 		if(GUILayout.Button("Credits", GUILayout.Width(250)))
 		{
 			Application.LoadLevelAsync(4);
