@@ -16,10 +16,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/creditsScene.unity
   - enabled: 1
-    path: Assets/Scenes/endSimulationLowScene.unity
+    path: Assets/Scenes/simulationScenes/endSimulationLowScene.unity
   - enabled: 1
     path: Assets/Scenes/simulationScenes/trainingScene.unity
   - enabled: 1
-    path: Assets/Scenes/endTrainingScene.unity
+    path: Assets/Scenes/simulationScenes/endTrainingScene.unity
   - enabled: 1
     path: Assets/Scenes/statisticsScene.unity
+  - enabled: 1
+    path: Assets/Scenes/simulationScenes/simulationSceneHigh.unity
+  - enabled: 1
+    path: Assets/Scenes/simulationScenes/endSimulationHighScene.unity

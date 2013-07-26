@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 983387863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3665a411fbd8447a853d3da5365479, type: 3}
+  m_Script: {fileID: 11500000, guid: d67e6fceae2620a4faf0ced8493aaedd, type: 3}
   m_Name: 
   mySkin: {fileID: 11400000, guid: 873cab5fcd11ab27d0003f1ba220b639, type: 2}
   titleStyle:
@@ -282,4 +282,4 @@ MonoBehaviour:
     m_FixedWidth: 0
     m_FixedHeight: 0
     m_StretchWidth: 1
-    m_StretchHeight: 1
+    m_StretchHeight: 0

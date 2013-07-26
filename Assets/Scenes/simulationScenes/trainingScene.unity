@@ -28,7 +28,7 @@ RenderSettings:
   m_SpotCookie: {fileID: 0}
   m_ObjectHideFlags: 0
 --- !u!127 &3
-GameManager:
+LevelGameManager:
   m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
@@ -109,7 +109,7 @@ GUIText:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 71726367}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Text: Gui Text
   m_Anchor: 0
@@ -1022,6 +1022,7 @@ GameObject:
   - 23: {fileID: 415835925}
   - 114: {fileID: 415835924}
   - 135: {fileID: 415835923}
+  - 114: {fileID: 415835927}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -1094,6 +1095,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1812093695}
   m_GameObject: {fileID: 415835921}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &415835927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415835921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1 &494824718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1321,7 @@ GameObject:
   - 23: {fileID: 505979489}
   - 114: {fileID: 505979488}
   - 135: {fileID: 505979487}
+  - 114: {fileID: 505979492}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -1381,6 +1394,17 @@ Transform:
   m_LocalScale: {x: .0163720008, y: .0163720008, z: .0163720008}
   m_Children: []
   m_Father: {fileID: 858247671}
+--- !u!114 &505979492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505979486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1001 &566173641
 Prefab:
   m_ObjectHideFlags: 0
@@ -1414,6 +1438,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9ef8809088834ec190d97afedf9b555, type: 2}
       propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: d9ef8809088834ec190d97afedf9b555, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1883,7 +1911,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400008, guid: 075d6df03ff603a4a81e93b974ed9d44, type: 3}
   m_PrefabInternal: {fileID: 388179029}
   m_GameObject: {fileID: 1112383777}
-  m_LocalRotation: {x: .707106829, y: 0, z: -0, w: .707106709}
+  m_LocalRotation: {x: .707106888, y: 0, z: -0, w: .707106769}
   m_LocalPosition: {x: .562791765, y: 2.09808348e-07, z: -1.11142266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2044,6 +2072,7 @@ GameObject:
   - 23: {fileID: 1126718472}
   - 114: {fileID: 1126718471}
   - 135: {fileID: 1126718470}
+  - 114: {fileID: 1126718474}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -2116,6 +2145,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 161663567}
   m_GameObject: {fileID: 1126718468}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1126718474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1126718468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1 &1178921180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2324,7 @@ GameObject:
   - 23: {fileID: 1246868896}
   - 114: {fileID: 1246868895}
   - 135: {fileID: 1246868894}
+  - 114: {fileID: 1246868899}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -2356,6 +2397,17 @@ Transform:
   m_LocalScale: {x: .0163719337, y: .0163719337, z: .0163719337}
   m_Children: []
   m_Father: {fileID: 858247671}
+--- !u!114 &1246868899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1246868893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1 &1292274639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,6 +2490,7 @@ GameObject:
   - 23: {fileID: 1400472948}
   - 114: {fileID: 1400472947}
   - 135: {fileID: 1400472946}
+  - 114: {fileID: 1400472950}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -2510,6 +2563,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 80364867}
   m_GameObject: {fileID: 1400472944}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1400472950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1400472944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1 &1401865453
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,6 +3069,7 @@ GameObject:
   - 23: {fileID: 1644659468}
   - 114: {fileID: 1644659467}
   - 135: {fileID: 1644659466}
+  - 114: {fileID: 1644659470}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -3077,6 +3142,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1603562659}
   m_GameObject: {fileID: 1644659464}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1644659470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644659464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1001 &1654995933
 Prefab:
   m_ObjectHideFlags: 0
@@ -3485,7 +3561,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400018, guid: 075d6df03ff603a4a81e93b974ed9d44, type: 3}
   m_PrefabInternal: {fileID: 388179029}
   m_GameObject: {fileID: 1876994939}
-  m_LocalRotation: {x: .707106829, y: 0, z: -0, w: .707106709}
+  m_LocalRotation: {x: .707106888, y: 0, z: -0, w: .707106769}
   m_LocalPosition: {x: .562791765, y: 2.09808348e-07, z: -1.11142266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3886,6 +3962,7 @@ GameObject:
   - 23: {fileID: 2110442440}
   - 114: {fileID: 2110442439}
   - 135: {fileID: 2110442438}
+  - 114: {fileID: 2110442442}
   m_Layer: 0
   m_Name: ObstacleSphere
   m_TagString: Untagged
@@ -3958,6 +4035,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 993864228}
   m_GameObject: {fileID: 2110442436}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2110442442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110442436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1846efc4a338e542adba3d7b4ccef57, type: 3}
+  m_Name: 
+  fpsObject: {fileID: 2114403416}
 --- !u!1 &2114403416
 GameObject:
   m_ObjectHideFlags: 0

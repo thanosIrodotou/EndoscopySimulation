@@ -47,16 +47,24 @@ public class EndTrainingGUI : MonoBehaviour
 		
 		GUILayout.Space(10);
 		
+		if(GUILayout.Button("Main Menu", GUILayout.Width(250)))
+		{
+			Application.LoadLevel(0);
+		}		
+		
+		GUILayout.Space(10);
+		
 		if(GUILayout.Button("Quit Simulation", GUILayout.Width(250)))
 		{
 			Application.Quit();
-		}		
+		}				
+		
 		GUILayout.EndArea();
 	}
 	
 	void popUp(int windowID) 
 	{
-		GUILayout.Label("Operation Statistics", titleStyle);	
+		GUILayout.Label("Training Statistics", titleStyle);	
 		GUILayout.Space(30);
 		GUILayout.Label("Total Time: " + TrainingController.niceTime, bodyStyle);
 		//GUILayout.Space(30);

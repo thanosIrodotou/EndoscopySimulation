@@ -86,11 +86,11 @@ public class EndSimulationLowGUI : MonoBehaviour
 	{
 		GUILayout.Label("Last Operation Statistics", titleStyle);	
 		GUILayout.Space(30);
-		GUILayout.Label("Total Time: " + LowSimulationController.niceTime, bodyStyle);
+		GUILayout.Label("Total Time: " + SimulationControllerLow.niceTime, bodyStyle);
 		//GUILayout.Space(30);
-		GUILayout.Label("Length Examined: " + LowSimulationController.length + " cm", bodyStyle);
-		GUILayout.Label("Lesions Discovered: " + LowSimulationController.lesions, bodyStyle);
-		GUILayout.Label("Patient Discomfort Estimate (1-10): " + LowSimulationController.discomfortLevel, bodyStyle);
+		GUILayout.Label("Length Examined: " + SimulationControllerLow.length + " cm", bodyStyle);
+		GUILayout.Label("Lesions Discovered: " + SimulationControllerLow.lesions, bodyStyle);
+		GUILayout.Label("Patient Discomfort Estimate (1-10): " + SimulationControllerLow.discomfortLevel, bodyStyle);
 	}
 	
 	void statsPopUp(int windowID) 
@@ -101,6 +101,7 @@ public class EndSimulationLowGUI : MonoBehaviour
 			GUILayout.Label("Overall Statistics", titleStyle);	
 			GUILayout.Space(30);
 			GUILayout.Label("Data taken on: " + PlayerPrefs.GetString("DateTimeDataTaken"), bodyStyle);
+			GUILayout.Label("Current Scenario: " + PlayerPrefs.GetString("CurrentSimScenario"), bodyStyle);			
 			GUILayout.Label("Simulation duration: " + PlayerPrefs.GetString("TimeSpent"), bodyStyle);
 			GUILayout.Label("Length examined: " + TrainingController.length + " cm", bodyStyle);
 			GUILayout.Label("Lesions discovered: " + TrainingController.lesions, bodyStyle);

@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/StatisticsGUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Controllers\TrainingController.cs">
     <Files>
-      <File FileName="Assets/Scripts/GUI/StartSceneGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/OptionsSceneGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI/StatisticsGUI.cs" Line="37" Column="6" />
+      <File FileName="Assets\Scripts\Collisions\LesionCollision.cs" Line="26" Column="33" />
+      <File FileName="Assets\Scripts\Controllers\TrainingController.cs" Line="11" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,10 +11,11 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Controllers" expanded="True" />
-                <Node name="GUI" expanded="True">
-                  <Node name="StatisticsGUI.cs" selected="True" />
+                <Node name="Collisions" expanded="True" />
+                <Node name="Controllers" expanded="True">
+                  <Node name="TrainingController.cs" selected="True" />
                 </Node>
+                <Node name="Others" expanded="True" />
               </Node>
             </Node>
           </Node>

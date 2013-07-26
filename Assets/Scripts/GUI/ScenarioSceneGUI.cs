@@ -39,9 +39,9 @@ public class ScenarioSceneGUI : MonoBehaviour
 		
 		GUILayout.Space(spacing);
 		
-		if(GUILayout.Button("Scenario 3. Medium Interaction", GUILayout.Width(300)))
+		if(GUILayout.Button("Scenario 3. High Interaction", GUILayout.Width(300)))
 		{
-			Application.LoadLevelAsync(1);
+			Application.LoadLevelAsync(9);
 		}
 		
 		GUILayout.Space(spacing);		

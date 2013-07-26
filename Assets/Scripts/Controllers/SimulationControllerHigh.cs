@@ -1,40 +1,40 @@
 using UnityEngine;
 using System.Collections;
 
-public class TrainingController : MonoBehaviour 
+public class SimulationControllerHigh : MonoBehaviour 
 {
 
 	private float startTime;
 	private float ellapsedTime;
 	public GUISkin mySkin;
-	//private int spacing = 5;
 	public static string niceTime;
+	public static string currentDateTime;
 	public static float length = 0f;
-	public static int lesions;
+	public static int lesions = 8;
 	public static int discomfortLevel = 10;
 	private Rect windowRect = new Rect((Screen.width - 260)/2, (Screen.height - 200)/2, 0, 0);
 	public GUIStyle style;
 	private bool hitEscape = false;
 	private bool isTerminated = false;
 	private bool pauseToggle = false;
-	private bool escapePressed = false;
 	public bool sideCamToggle = false;	
+	public bool birdsEyeToggle = false;
 	public GUITexture sideCamTexture;
+	public GUITexture birdsEyeTexture;
 
 	void Awake() 
 	{	
-		//startTime = Time.time;				
+		//startTime = Time.time;	
 	}
 	
 	// Use this for initialization
 	void Start () 
 	{
-		Time.timeScale = 1;		
 		startTime = Time.time;
-		lesions = 0;
 		Screen.SetResolution(1920, 1080, true, 60);			
 		mySkin = Resources.Load("Extra GUI Skins/MetalGUISkin") as GUISkin;
 		sideCamTexture.enabled = false;
+		birdsEyeTexture.enabled = false;	
 	}
 
 	// Update is called once per frame
@@ -47,17 +47,16 @@ public class TrainingController : MonoBehaviour
 	
 		if (isTerminated == true)
 		{
-			Application.LoadLevel(7);
+			Application.LoadLevel(10);
 		}
 		
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{	
-			gameObject.GetComponent<MouseLook>().enabled = false;
 			hitEscape = true;
 			pauseToggle = true;
 			if(pauseToggle)
 			Time.timeScale = 0;
-		}					 
+		}	
 	
 		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetButtonDown("SideCam"))
 		{
@@ -76,6 +75,23 @@ public class TrainingController : MonoBehaviour
 				print ("sideCam Off");
 			}
 		}	
+		
+		if (Input.GetKeyDown(KeyCode.B)  || Input.GetButtonDown("BirdsEyeCam"))
+		{
+			print ("B Pressed");
+			if (birdsEyeToggle == false)
+			{
+				birdsEyeToggle = true;
+				birdsEyeTexture.enabled = true;
+				print ("birdsCam On");
+			}
+			else if (birdsEyeToggle == true)
+			{
+				birdsEyeToggle = false;
+				birdsEyeTexture.enabled = false;
+				print ("birdsCam Off");
+			}
+		}
 	}
 	
 	void OnTriggerEnter()
@@ -133,6 +149,13 @@ public class TrainingController : MonoBehaviour
 		GUILayout.Label("Are you sure you want to cancel the simulation?");
 		if(GUILayout.Button("Yes", GUILayout.Width(280)))
 		{
+			PlayerPrefs.SetString("DateTimeDataTaken", System.DateTime.Now.ToString());
+			PlayerPrefs.SetString("CurrentSimScenario", "'High Interaction'");							
+			PlayerPrefs.SetString("TimeSpent", niceTime);	
+			PlayerPrefs.SetFloat("LengthTraveled", length);
+			PlayerPrefs.SetInt("Lesions", lesions);
+			PlayerPrefs.SetInt("Discomfort", discomfortLevel);
+			PlayerPrefs.Save();
 			isTerminated = true;
 		}
 		if(GUILayout.Button("No", GUILayout.Width(280)))

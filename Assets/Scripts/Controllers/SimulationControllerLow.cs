@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class LowSimulationController : MonoBehaviour 
+public class SimulationControllerLow : MonoBehaviour 
 {
 
 	private float startTime;
@@ -150,6 +150,7 @@ public class LowSimulationController : MonoBehaviour
 		if(GUILayout.Button("Yes", GUILayout.Width(280)))
 		{
 			PlayerPrefs.SetString("DateTimeDataTaken", System.DateTime.Now.ToString());
+			PlayerPrefs.SetString("CurrentSimScenario", "'Low Interaction'");							
 			PlayerPrefs.SetString("TimeSpent", niceTime);	
 			PlayerPrefs.SetFloat("LengthTraveled", length);
 			PlayerPrefs.SetInt("Lesions", lesions);
