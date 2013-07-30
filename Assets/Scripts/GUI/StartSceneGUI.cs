@@ -10,7 +10,7 @@ public class StartSceneGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+
 	}
 	
 	// Update is called once per frame
@@ -18,7 +18,14 @@ public class StartSceneGUI : MonoBehaviour
 	{
 		GUI.skin = mySkin;																			
 
-		GUILayout.BeginArea(new Rect((Screen.width - 250)/2, (Screen.height - 250)/2, 250, 250));
+		GUILayout.BeginArea(new Rect((Screen.width - 250)/2, (Screen.height - 250)/2, 250, 500));
+		if(GUILayout.Button("Start Training", GUILayout.Width(250)))
+		{
+			Application.LoadLevelAsync(6);
+		}
+		
+		GUILayout.Space(spacing);
+		
 		if(GUILayout.Button("Start Simulation", GUILayout.Width(250)))
 		{
 			Application.LoadLevelAsync(1);

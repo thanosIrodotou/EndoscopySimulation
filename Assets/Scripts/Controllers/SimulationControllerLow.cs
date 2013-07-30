@@ -9,9 +9,12 @@ public class SimulationControllerLow : MonoBehaviour
 	public GUISkin mySkin;
 	public static string niceTime;
 	public static string currentDateTime;
-	public static float length = 0f;
-	public static int lesions = 8;
-	public static int discomfortLevel = 10;
+	public static float length;
+	public static float sessionLength = 0f;
+	public static int lesions;
+	public static int sessionLesions = 0;
+	public static float discomfortLevel;
+	public static float sessionDiscomfortLevel;
 	private Rect windowRect = new Rect((Screen.width - 260)/2, (Screen.height - 200)/2, 0, 0);
 	public GUIStyle style;
 	private bool hitEscape = false;
@@ -20,7 +23,7 @@ public class SimulationControllerLow : MonoBehaviour
 	public bool sideCamToggle = false;	
 	public bool birdsEyeToggle = false;
 	public GUITexture sideCamTexture;
-	public GUITexture birdsEyeTexture;
+	public GUITexture birdsEyeTexture;	
 
 	void Awake() 
 	{	
@@ -31,10 +34,16 @@ public class SimulationControllerLow : MonoBehaviour
 	void Start () 
 	{
 		startTime = Time.time;
-		Screen.SetResolution(1920, 1080, true, 60);			
+		Screen.SetResolution(1920, 1080, true, 60);	
+		sessionLength = 0f;
+		sessionLesions = 0;		
+		sessionDiscomfortLevel = 0f;
 		mySkin = Resources.Load("Extra GUI Skins/MetalGUISkin") as GUISkin;
 		sideCamTexture.enabled = false;
 		birdsEyeTexture.enabled = false;	
+		length = PlayerPrefs.GetFloat("LowLengthTraveled");
+		lesions = PlayerPrefs.GetInt("LowLesions");
+		discomfortLevel = PlayerPrefs.GetFloat("LowDiscomfort");
 	}
 
 	// Update is called once per frame
@@ -113,7 +122,7 @@ public class SimulationControllerLow : MonoBehaviour
 		niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);	
 		
 		//OVERLAYS START
-		GUILayout.BeginArea(new Rect((Screen.width -250)/2, 5, 300, 200));
+		GUILayout.BeginArea(new Rect((Screen.width - 400)/2, 5, 400, 200));
 		
 		GUILayout.BeginHorizontal("box");
 		GUILayout.Label("Time:");
@@ -124,7 +133,13 @@ public class SimulationControllerLow : MonoBehaviour
 		
 		//GUILayout.BeginHorizontal("box");
 		GUILayout.Label("Length Discovered:");
-		GUILayout.Box(length.ToString() + " cm");
+		GUILayout.Box(sessionLength.ToString() + " cm");
+		
+		GUILayout.FlexibleSpace();
+		
+		GUILayout.Label("Discomfort Level:");
+		GUILayout.Box(sessionDiscomfortLevel.ToString());
+		
 		GUILayout.EndHorizontal();
 		
 		GUILayout.EndArea();
@@ -148,13 +163,19 @@ public class SimulationControllerLow : MonoBehaviour
 	{
 		GUILayout.Label("Are you sure you want to cancel the simulation?");
 		if(GUILayout.Button("Yes", GUILayout.Width(280)))
-		{
-			PlayerPrefs.SetString("DateTimeDataTaken", System.DateTime.Now.ToString());
-			PlayerPrefs.SetString("CurrentSimScenario", "'Low Interaction'");							
-			PlayerPrefs.SetString("TimeSpent", niceTime);	
-			PlayerPrefs.SetFloat("LengthTraveled", length);
-			PlayerPrefs.SetInt("Lesions", lesions);
-			PlayerPrefs.SetInt("Discomfort", discomfortLevel);
+		{			
+			discomfortLevel += sessionDiscomfortLevel;
+			length += sessionLength;
+			lesions += sessionLesions;			
+			PlayerPrefs.SetString("LowDateTimeDataTaken", System.DateTime.Now.ToString());
+			PlayerPrefs.SetString("LowCurrentSimScenario", "'Low Interaction'");							
+			PlayerPrefs.SetString("LowTimeSpent", niceTime);	
+			PlayerPrefs.SetFloat("LowLengthTraveled", length);
+			PlayerPrefs.SetFloat("LowSessionLengthTraveled", sessionLength);
+			PlayerPrefs.SetInt("LowLesions", lesions);
+			PlayerPrefs.SetInt("LowSessionLesions", sessionLesions);			
+			PlayerPrefs.SetFloat("LowDiscomfort", discomfortLevel);		
+			PlayerPrefs.SetFloat("LowSessionDiscomfort", sessionDiscomfortLevel);
 			PlayerPrefs.Save();
 			isTerminated = true;
 		}

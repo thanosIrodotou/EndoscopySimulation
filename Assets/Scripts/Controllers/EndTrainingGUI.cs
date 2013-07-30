@@ -42,6 +42,7 @@ public class EndTrainingGUI : MonoBehaviour
 		
 		if(GUILayout.Button("Select Scenario", GUILayout.Width(250)))
 		{
+			ScenarioSceneGUI.cameFrom = "endTrainingGUI";
 			Application.LoadLevel(2);
 		}
 		
@@ -65,11 +66,17 @@ public class EndTrainingGUI : MonoBehaviour
 	void popUp(int windowID) 
 	{
 		GUILayout.Label("Training Statistics", titleStyle);	
-		GUILayout.Space(30);
-		GUILayout.Label("Total Time: " + TrainingController.niceTime, bodyStyle);
-		//GUILayout.Space(30);
-		GUILayout.Label("Length Examined: " + TrainingController.length + " cm", bodyStyle);
-		GUILayout.Label("Lesions Discovered: " + TrainingController.lesions, bodyStyle);
-		GUILayout.Label("Patient Discomfort Estimate (1-10): " + TrainingController.discomfortLevel, bodyStyle);
+		GUILayout.Space(20);
+		GUILayout.Label("Data taken on: " + PlayerPrefs.GetString("TrDateTimeDataTaken"), bodyStyle);	
+		GUILayout.Space(5);
+		GUILayout.Label("Current Scenario: " + PlayerPrefs.GetString("TrCurrentSimScenario"), bodyStyle);
+		GUILayout.Space(5);
+		GUILayout.Label("Total Time: " + PlayerPrefs.GetString("TrTimeSpent"), bodyStyle);
+		GUILayout.Space(5);		
+		GUILayout.Label("Length Examined: " + PlayerPrefs.GetFloat("TrSessionLengthTraveled") + " cm", bodyStyle);
+		GUILayout.Space(5);
+		GUILayout.Label("Lesions Discovered: " + PlayerPrefs.GetInt("TrSessionLesions"), bodyStyle);
+		GUILayout.Space(5);
+		GUILayout.Label("Patient Discomfort Estimate (1-10): " + PlayerPrefs.GetFloat("TrSessionDiscomfort"), bodyStyle);
 	}
 }

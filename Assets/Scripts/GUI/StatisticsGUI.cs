@@ -8,15 +8,32 @@ public class StatisticsGUI : MonoBehaviour
 	private Rect windowRect = new Rect((Screen.width - 300)/2, (Screen.height - 400)/2, 0, 0);
 	public GUIStyle titleStyle;
 	public GUIStyle bodyStyle;
-	private float wPos = (Screen.width - 300)/2f;
-	private float hPos = (Screen.height - 400)/2f;
 	public Vector2 scrollPosition;
+	private string totalTime;
+	private float totalLength;
+	private int totalLesions;
+	private float totalDiscomfort;
 
 	// Use this for initialization
 	void Start () 
 	{
 		//Screen.SetResolution(1920, 1080, true, 60);	
 		//print (Screen.width);
+		print ("Tr " + PlayerPrefs.GetFloat("TrLengthTraveled"));
+		print ("Low " + PlayerPrefs.GetFloat("LowLengthTraveled"));
+		print ("High " + PlayerPrefs.GetFloat("HighLengthTraveled"));
+		totalLength = PlayerPrefs.GetFloat("TrLengthTraveled") + PlayerPrefs.GetFloat("LowLengthTraveled") + PlayerPrefs.GetFloat("HighLengthTraveled");
+		totalLesions = PlayerPrefs.GetInt("TrLesions") + PlayerPrefs.GetInt("LowLesions") + PlayerPrefs.GetInt("HighLesions");
+		totalDiscomfort = PlayerPrefs.GetFloat("TrDiscomfort") + PlayerPrefs.GetFloat("LowDiscomfort") + PlayerPrefs.GetFloat("HighDiscomfort");
+		
+		
+		PlayerPrefs.SetString("AllDateTimeDataTaken", System.DateTime.Now.ToString());
+		PlayerPrefs.SetString("AllTimeSpent", "Nil");
+		PlayerPrefs.SetFloat("AllLength", totalLength);
+		PlayerPrefs.SetInt("AllLesions", totalLesions);
+		PlayerPrefs.SetFloat("AllDiscomfort", totalDiscomfort);
+		PlayerPrefs.Save();
+
 	}
 	
 	void Awake () 
@@ -33,23 +50,6 @@ public class StatisticsGUI : MonoBehaviour
 	{
 		GUI.skin = mySkin;								
 		
-		//scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(300), GUILayout.Height(250));			
-//			if (PlayerPrefs.HasKey("TimeSpent"))
-//			{			
-//				GUILayout.Label("Overall Statistics", titleStyle);	
-//				GUILayout.Space(30);
-//				GUILayout.Label("Data taken on: " + PlayerPrefs.GetString("DateTimeDataTaken"), bodyStyle);
-//				GUILayout.Space(5);
-//				GUILayout.Label("Simulation duration: " + PlayerPrefs.GetString("TimeSpent"), bodyStyle);
-//				GUILayout.Space(5);
-//				GUILayout.Label("Length examined: " + TrainingController.length + " cm", bodyStyle);
-//				GUILayout.Space(5);
-//				GUILayout.Label("Lesions discovered: " + TrainingController.lesions, bodyStyle);
-//				GUILayout.Space(5);
-//				GUILayout.Label("Patient discomfort Estimate (1-10): " + TrainingController.discomfortLevel, bodyStyle);
-//			}
-//		GUILayout.EndScrollView();
-		
 		windowRect = GUILayout.Window(0, windowRect, popUp, "", GUILayout.Width(300), GUILayout.Height(250));				 		
 		
 		GUILayout.BeginArea(new Rect((Screen.width -250)/2, (Screen.height + 150)/2, 250,250));
@@ -58,33 +58,30 @@ public class StatisticsGUI : MonoBehaviour
 			Application.LoadLevelAsync(0);
 		}		
 		
-		GUILayout.EndArea();
-		
+		GUILayout.EndArea();		
 	}
 	
 	void popUp(int windowID) 
-	{
-		
-		if (PlayerPrefs.HasKey("TimeSpent"))
+	{				
+		if (PlayerPrefs.HasKey("AllDateTimeDataTaken"))
 		{			
-			GUILayout.Label("Overall Statistics", titleStyle);	
+			GUILayout.Label("Statistics Summary", titleStyle);	
 			GUILayout.Space(30);
-			GUILayout.Label("Data taken on: " + PlayerPrefs.GetString("DateTimeDataTaken"), bodyStyle);
+			GUILayout.Label("Summary taken on: " + PlayerPrefs.GetString("AllDateTimeDataTaken"), bodyStyle);
 			GUILayout.Space(5);
-			GUILayout.Label("Simulation duration: " + PlayerPrefs.GetString("TimeSpent"), bodyStyle);
+			GUILayout.Label("Total simulation duration: " + PlayerPrefs.GetString("AllTimeSpent"), bodyStyle);
 			GUILayout.Space(5);
-			GUILayout.Label("Length examined: " + TrainingController.length + " cm", bodyStyle);
+			GUILayout.Label("Total length examined: " + PlayerPrefs.GetFloat("AllLength") + " cm", bodyStyle);
 			GUILayout.Space(5);
-			GUILayout.Label("Lesions discovered: " + TrainingController.lesions, bodyStyle);
+			GUILayout.Label("Total lesions discovered: " + PlayerPrefs.GetInt("AllLesions"), bodyStyle);
 			GUILayout.Space(5);
-			GUILayout.Label("Patient discomfort Estimate (1-10): " + TrainingController.discomfortLevel, bodyStyle);
+			GUILayout.Label("Total discomfort caused (1-10): " + PlayerPrefs.GetFloat("AllDiscomfort"), bodyStyle);
 		} 
 		else 
 		{
 			GUILayout.Label("Overall Statistics", titleStyle);				
 			GUILayout.Space(30);
 			GUILayout.Label("No statistical information has been recorded yet.");
-		}
-					
+		}				
 	}
 }

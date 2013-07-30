@@ -22,8 +22,8 @@ public class LesionCollision : MonoBehaviour
 		if (myTrigger.gameObject.name == fpsObject.name)
 		{
 			print ("sending...");	
-			TrainingController script;
-			TrainingController.lesions = TrainingController.lesions + 1;		
+			TrainingController.sessionLesions = TrainingController.sessionLesions + 1;	
+			Destroy(gameObject);
 		}
 	}
 }

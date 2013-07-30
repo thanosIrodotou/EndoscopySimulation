@@ -6,7 +6,7 @@ public class ScenarioSceneGUI : MonoBehaviour
 	
 	public GUISkin mySkin;
 	private int spacing = 10;	
-
+	public static string cameFrom;
 	// Use this for initialization
 	void Start () 
 	{
@@ -48,7 +48,23 @@ public class ScenarioSceneGUI : MonoBehaviour
 		
 		if(GUILayout.Button("Back", GUILayout.Width(300)))
 		{
-			Application.LoadLevelAsync(0);
+			if (cameFrom == "endSimulationLowGUI")
+			{
+				Application.LoadLevelAsync(5);	
+			}
+			else if (cameFrom == "endSimulationHighGUI")
+			{
+				Application.LoadLevelAsync(10);
+			}
+			else if (cameFrom == "endTrainingGUI")
+			{
+				Application.LoadLevelAsync(7);
+			}
+			else 
+			{
+				Application.LoadLevelAsync(0);
+			}
+			
 		}
 		
 		GUILayout.EndArea();
