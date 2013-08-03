@@ -21,7 +21,7 @@ public class TrainingController : MonoBehaviour
 	private bool isTerminated = false;
 	private bool pauseToggle = false;
 	public bool sideCamToggle = false;	
-	public GUITexture sideCamTexture;
+	public GUITexture sideCamTexture;	
 
 	void Awake() 
 	{	
@@ -30,7 +30,7 @@ public class TrainingController : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () 
-	{
+	{		
 		Time.timeScale = 1;		
 		startTime = Time.time;
 		sessionLength = 0f;
@@ -64,7 +64,7 @@ public class TrainingController : MonoBehaviour
 			pauseToggle = true;
 			if(pauseToggle)
 			Time.timeScale = 0;
-		}					 
+		}	
 	
 		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetButtonDown("SideCam"))
 		{
@@ -97,48 +97,50 @@ public class TrainingController : MonoBehaviour
 	
 	void OnGUI ()
 	{
-		//START OVERLAYS
-		GUI.skin = mySkin;
-		int minutes = Mathf.FloorToInt(ellapsedTime / 60F);
-		int seconds = Mathf.FloorToInt(ellapsedTime - minutes * 60);
-		niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);	
-		
-		//OVERLAYS START
-		GUILayout.BeginArea(new Rect((Screen.width - 600)/2, 5, 600, 200));
-		
-		GUILayout.BeginHorizontal("box");
-		GUILayout.Label("Time:");
-		GUILayout.Box(niceTime);
-		
-		GUILayout.FlexibleSpace();
-		//GUILayout.EndHorizontal();
-		
-		//GUILayout.BeginHorizontal("box");
-		GUILayout.Label("Length Discovered:");
-		GUILayout.Box(sessionLength.ToString() + " cm");
-		
-		GUILayout.FlexibleSpace();
-		
-		GUILayout.Label("Lesions Discovered:");
-		GUILayout.Box(sessionLesions.ToString());
-		
-		GUILayout.FlexibleSpace();
-		
-		GUILayout.Label("Discomfort Level:");
-		GUILayout.Box(sessionDiscomfortLevel.ToString());		
-		
-		GUILayout.EndHorizontal();
-		
-		GUILayout.EndArea();
-		//END OVERLAYS
-		
-		//START BUTTONS	
-		if (hitEscape == true)
+		if (TrainingTutorial.showGUIOverlays)
 		{
-			windowRect = GUILayout.Window(0, windowRect, popUp, "", GUILayout.Height(100), GUILayout.Width(100));	
-		}	
-		//END BUTTONS
-	
+			//START OVERLAYS
+			GUI.skin = mySkin;
+			int minutes = Mathf.FloorToInt(ellapsedTime / 60F);
+			int seconds = Mathf.FloorToInt(ellapsedTime - minutes * 60);
+			niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);	
+			
+			//OVERLAYS START
+			GUILayout.BeginArea(new Rect((Screen.width - 600)/2, 5, 600, 200));
+			
+			GUILayout.BeginHorizontal("box");
+			GUILayout.Label("Time:");
+			GUILayout.Box(niceTime);
+			
+			GUILayout.FlexibleSpace();
+			//GUILayout.EndHorizontal();
+			
+			//GUILayout.BeginHorizontal("box");
+			GUILayout.Label("Length Discovered:");
+			GUILayout.Box(sessionLength.ToString() + " cm");
+			
+			GUILayout.FlexibleSpace();
+			
+			GUILayout.Label("Lesions Discovered:");
+			GUILayout.Box(sessionLesions.ToString());
+			
+			GUILayout.FlexibleSpace();
+			
+			GUILayout.Label("Discomfort Level:");
+			GUILayout.Box(sessionDiscomfortLevel.ToString());		
+			
+			GUILayout.EndHorizontal();
+			
+			GUILayout.EndArea();
+			//END OVERLAYS
+		
+			//START BUTTONS	
+			if (hitEscape == true)
+			{
+				windowRect = GUILayout.Window(0, windowRect, popUp, "", GUILayout.Height(100), GUILayout.Width(100));	
+			}	
+			//END BUTTONS
+		}			
 	}	
 	
 	public string GetElapsedTime

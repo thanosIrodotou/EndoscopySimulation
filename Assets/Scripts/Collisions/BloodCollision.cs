@@ -58,6 +58,5 @@ public class BloodCollision : MonoBehaviour
 			
 		}
         
-    }
-	
+    }	
 }
