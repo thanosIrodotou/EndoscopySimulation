@@ -24,6 +24,9 @@ public class SimulationControllerHigh : MonoBehaviour
 	public bool birdsEyeToggle = false;
 	public GUITexture sideCamTexture;
 	public GUITexture birdsEyeTexture;
+	private bool isVerticallyStabilised = false;
+	private bool isHorizontallyStabilised = false;
+	private bool areAllAxisStabilised = false;	
 
 	void Awake() 
 	{	
@@ -70,38 +73,59 @@ public class SimulationControllerHigh : MonoBehaviour
 	
 		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetButtonDown("SideCam"))
 		{
-			print ("Space Pressed");
+//			print ("Space Pressed");
 			if (sideCamToggle == false)
 			{
 				sideCamToggle = true;
 				sideCamTexture.enabled = true;
 				
-				print ("sideCam On");
+//				print ("sideCam On");
 			}
 			else if (sideCamToggle == true)
 			{
 				sideCamToggle = false;
 				sideCamTexture.enabled = false;
-				print ("sideCam Off");
+//				print ("sideCam Off");
 			}
 		}	
 		
 		if (Input.GetKeyDown(KeyCode.B)  || Input.GetButtonDown("BirdsEyeCam"))
 		{
-			print ("B Pressed");
+//			print ("B Pressed");
 			if (birdsEyeToggle == false)
 			{
 				birdsEyeToggle = true;
 				birdsEyeTexture.enabled = true;
-				print ("birdsCam On");
 			}
+//				print ("birdsCam On");
 			else if (birdsEyeToggle == true)
 			{
 				birdsEyeToggle = false;
 				birdsEyeTexture.enabled = false;
-				print ("birdsCam Off");
+//				print ("birdsCam Off");
 			}
 		}
+		
+		if (isVerticallyStabilised == false && Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			GameObject.Find("First Person Controller").GetComponent<MouseLook>().enabled = false;
+			isVerticallyStabilised = true;
+		}		
+		else if (isVerticallyStabilised == true && !isHorizontallyStabilised == true && Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			//gameObject.GetComponent("MouseLook").enabled = !GetComponent("MouseLook").enabled;			
+			GameObject.Find("First Person Controller").SendMessage("DisableCharacterMotor", false);
+			isHorizontallyStabilised = true;
+			areAllAxisStabilised = true;
+		}
+		else if (areAllAxisStabilised == true && Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			GameObject.Find("First Person Controller").GetComponent<MouseLook>().enabled = true;
+			GameObject.Find("First Person Controller").SendMessage("DisableCharacterMotor", true);
+			areAllAxisStabilised = false;
+			isHorizontallyStabilised = false;
+			isVerticallyStabilised = false;
+		}		
 	}
 	
 	void OnTriggerEnter()
@@ -139,7 +163,7 @@ public class SimulationControllerHigh : MonoBehaviour
 		GUILayout.FlexibleSpace();
 		
 		GUILayout.Label("Discomfort Level:");
-		GUILayout.Box(sessionDiscomfortLevel.ToString());
+		GUILayout.Box(sessionDiscomfortLevel.ToString("F2"));
 		
 		GUILayout.EndHorizontal();
 		

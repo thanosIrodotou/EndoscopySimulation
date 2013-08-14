@@ -17,23 +17,16 @@ public class StatisticsGUI : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//Screen.SetResolution(1920, 1080, true, 60);	
-		//print (Screen.width);
-		print ("Tr " + PlayerPrefs.GetFloat("TrLengthTraveled"));
-		print ("Low " + PlayerPrefs.GetFloat("LowLengthTraveled"));
-		print ("High " + PlayerPrefs.GetFloat("HighLengthTraveled"));
 		totalLength = PlayerPrefs.GetFloat("TrLengthTraveled") + PlayerPrefs.GetFloat("LowLengthTraveled") + PlayerPrefs.GetFloat("HighLengthTraveled");
 		totalLesions = PlayerPrefs.GetInt("TrLesions") + PlayerPrefs.GetInt("LowLesions") + PlayerPrefs.GetInt("HighLesions");
 		totalDiscomfort = PlayerPrefs.GetFloat("TrDiscomfort") + PlayerPrefs.GetFloat("LowDiscomfort") + PlayerPrefs.GetFloat("HighDiscomfort");
-		
-		
+				
 		PlayerPrefs.SetString("AllDateTimeDataTaken", System.DateTime.Now.ToString());
 		PlayerPrefs.SetString("AllTimeSpent", "Nil");
 		PlayerPrefs.SetFloat("AllLength", totalLength);
 		PlayerPrefs.SetInt("AllLesions", totalLesions);
 		PlayerPrefs.SetFloat("AllDiscomfort", totalDiscomfort);
 		PlayerPrefs.Save();
-
 	}
 	
 	void Awake () 

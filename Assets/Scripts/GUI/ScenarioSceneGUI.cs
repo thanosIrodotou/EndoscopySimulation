@@ -25,12 +25,12 @@ public class ScenarioSceneGUI : MonoBehaviour
 
 		GUILayout.BeginArea(new Rect((Screen.width - 300)/2, (Screen.height - 250)/2, 350, 250));
 		
-		if(GUILayout.Button("Senario 1. Navigation & Controls Introduction", GUILayout.Width(300)))
-		{
-			Application.LoadLevelAsync(6);
-		}
-		
-		GUILayout.Space(spacing);
+//		if(GUILayout.Button("Senario 1. Navigation & Controls Introduction", GUILayout.Width(300)))
+//		{
+//			Application.LoadLevelAsync(6);
+//		}
+//		
+//		GUILayout.Space(spacing);
 		
 		if(GUILayout.Button("Scenario 2. Low Interaction", GUILayout.Width(300)))
 		{

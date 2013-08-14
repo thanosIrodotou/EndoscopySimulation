@@ -21,7 +21,12 @@ public class TrainingController : MonoBehaviour
 	private bool isTerminated = false;
 	private bool pauseToggle = false;
 	public bool sideCamToggle = false;	
-	public GUITexture sideCamTexture;
+	public bool birdsEyeToggle = false;
+	public GUITexture sideCamTexture;	
+	public GUITexture birdsEyeTexture;	
+	private bool isVerticallyStabilised = false;
+	private bool isHorizontallyStabilised = false;
+	public static bool areAllAxisStabilised = false;
 
 	void Awake() 
 	{	
@@ -30,8 +35,7 @@ public class TrainingController : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () 
-	{
-		Time.timeScale = 1;		
+	{					
 		startTime = Time.time;
 		sessionLength = 0f;
 		sessionLesions = 0;
@@ -39,6 +43,7 @@ public class TrainingController : MonoBehaviour
 		Screen.SetResolution(1920, 1080, true, 60);			
 		mySkin = Resources.Load("Extra GUI Skins/MetalGUISkin") as GUISkin;
 		sideCamTexture.enabled = false;
+		birdsEyeTexture.enabled = false;	
 		length = PlayerPrefs.GetFloat("TrLengthTraveled");
 		lesions = PlayerPrefs.GetInt("TrLesions");
 		discomfortLevel = PlayerPrefs.GetFloat("TrDiscomfort");
@@ -63,26 +68,58 @@ public class TrainingController : MonoBehaviour
 			hitEscape = true;
 			pauseToggle = true;
 			if(pauseToggle)
-			Time.timeScale = 0;
-		}					 
+			Time.timeScale = 0;			
+		}	
 	
 		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetButtonDown("SideCam"))
 		{
-			print ("Space Pressed");
 			if (sideCamToggle == false)
 			{
 				sideCamToggle = true;
-				sideCamTexture.enabled = true;
-				
-				print ("sideCam On");
+				sideCamTexture.enabled = true;			
 			}
 			else if (sideCamToggle == true)
 			{
 				sideCamToggle = false;
 				sideCamTexture.enabled = false;
-				print ("sideCam Off");
 			}
-		}	
+		}
+		
+		if (Input.GetKeyDown(KeyCode.B)  || Input.GetButtonDown("BirdsEyeCam"))
+		{
+			if (birdsEyeToggle == false)
+			{
+				birdsEyeToggle = true;
+				birdsEyeTexture.enabled = true;
+			}
+			else if (birdsEyeToggle == true)
+			{
+				birdsEyeToggle = false;
+				birdsEyeTexture.enabled = false;
+			}
+		}
+		
+		if (isVerticallyStabilised == false && Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			GameObject.Find("First Person Controller").GetComponent<MouseLook>().enabled = false;
+			isVerticallyStabilised = true;
+		}		
+		else if (isVerticallyStabilised == true && !isHorizontallyStabilised == true && Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			//gameObject.GetComponent("MouseLook").enabled = !GetComponent("MouseLook").enabled;			
+			GameObject.Find("First Person Controller").SendMessage("DisableCharacterMotor", false);
+			isHorizontallyStabilised = true;
+			areAllAxisStabilised = true;
+		}
+		else if (areAllAxisStabilised == true && Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			print ("i'm in");
+			GameObject.Find("First Person Controller").GetComponent<MouseLook>().enabled = true;
+			GameObject.Find("First Person Controller").SendMessage("DisableCharacterMotor", true);
+			areAllAxisStabilised = false;
+			isHorizontallyStabilised = false;
+			isVerticallyStabilised = false;
+		}
 	}
 	
 	void OnTriggerEnter()
@@ -97,48 +134,50 @@ public class TrainingController : MonoBehaviour
 	
 	void OnGUI ()
 	{
-		//START OVERLAYS
-		GUI.skin = mySkin;
-		int minutes = Mathf.FloorToInt(ellapsedTime / 60F);
-		int seconds = Mathf.FloorToInt(ellapsedTime - minutes * 60);
-		niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);	
-		
-		//OVERLAYS START
-		GUILayout.BeginArea(new Rect((Screen.width - 600)/2, 5, 600, 200));
-		
-		GUILayout.BeginHorizontal("box");
-		GUILayout.Label("Time:");
-		GUILayout.Box(niceTime);
-		
-		GUILayout.FlexibleSpace();
-		//GUILayout.EndHorizontal();
-		
-		//GUILayout.BeginHorizontal("box");
-		GUILayout.Label("Length Discovered:");
-		GUILayout.Box(sessionLength.ToString() + " cm");
-		
-		GUILayout.FlexibleSpace();
-		
-		GUILayout.Label("Lesions Discovered:");
-		GUILayout.Box(sessionLesions.ToString());
-		
-		GUILayout.FlexibleSpace();
-		
-		GUILayout.Label("Discomfort Level:");
-		GUILayout.Box(sessionDiscomfortLevel.ToString());		
-		
-		GUILayout.EndHorizontal();
-		
-		GUILayout.EndArea();
-		//END OVERLAYS
-		
-		//START BUTTONS	
-		if (hitEscape == true)
+		if (TrainingTutorial.showGUIOverlays)
 		{
-			windowRect = GUILayout.Window(0, windowRect, popUp, "", GUILayout.Height(100), GUILayout.Width(100));	
-		}	
-		//END BUTTONS
-	
+			//START OVERLAYS
+			GUI.skin = mySkin;
+			int minutes = Mathf.FloorToInt(ellapsedTime / 60F);
+			int seconds = Mathf.FloorToInt(ellapsedTime - minutes * 60);
+			niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);	
+			
+			//OVERLAYS START
+			GUILayout.BeginArea(new Rect((Screen.width - 600)/2, 5, 600, 200));
+			
+			GUILayout.BeginHorizontal("box");
+			GUILayout.Label("Time:");
+			GUILayout.Box(niceTime);
+			
+			GUILayout.FlexibleSpace();
+			//GUILayout.EndHorizontal();
+			
+			//GUILayout.BeginHorizontal("box");
+			GUILayout.Label("Length Discovered:");
+			GUILayout.Box(sessionLength.ToString() + " cm");
+			
+			GUILayout.FlexibleSpace();
+			
+			GUILayout.Label("Lesions Discovered:");
+			GUILayout.Box(sessionLesions.ToString());
+			
+			GUILayout.FlexibleSpace();
+			
+			GUILayout.Label("Discomfort Level:");
+			GUILayout.Box(sessionDiscomfortLevel.ToString("F2"));		
+			
+			GUILayout.EndHorizontal();
+			
+			GUILayout.EndArea();
+			//END OVERLAYS
+		
+			//START BUTTONS	
+			if (hitEscape == true)
+			{
+				windowRect = GUILayout.Window(0, windowRect, popUp, "", GUILayout.Height(100), GUILayout.Width(100));	
+			}	
+			//END BUTTONS
+		}			
 	}	
 	
 	public string GetElapsedTime

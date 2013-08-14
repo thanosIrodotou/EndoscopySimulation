@@ -24,25 +24,25 @@ public class LengthCollisionTr : MonoBehaviour
 			
 			if (gameObject.name == "DistanceCollider1")
 			{
-				print ("sending length1");	
+//				print ("sending length1");	
 				TrainingController.sessionLength = TrainingController.sessionLength + 15;
 				Destroy(gameObject);
 			} 
 			else if (gameObject.name == "DistanceCollider2")
 			{
-				print ("sending length2");	
+//				print ("sending length2");	
 				TrainingController.sessionLength = TrainingController.sessionLength + 25;
 				Destroy(gameObject);
 			}
 			else if (gameObject.name == "DistanceCollider3")
 			{
-				print ("sending length3");	
+//				print ("sending length3");	
 				TrainingController.sessionLength = TrainingController.sessionLength + 25;
 				Destroy(gameObject);
 			}
 			else if (gameObject.name == "DistanceCollider4")
 			{
-				print ("sending length4");	
+//				print ("sending length4");	
 				TrainingController.sessionLength = TrainingController.sessionLength + 26;
 				Destroy(gameObject);
 			}				

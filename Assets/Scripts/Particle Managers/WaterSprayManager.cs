@@ -19,7 +19,6 @@ public class WaterSprayManager : MonoBehaviour
 		{
 			if(Input.GetKey(KeyCode.LeftShift) || Input.GetButton("WaterPump"))
 			{	        
-				Debug.Log("WaterPump DEACTIVATED");
 				waterPump.emit = true;
 			}			
 		}
@@ -27,7 +26,6 @@ public class WaterSprayManager : MonoBehaviour
 		{
 			if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetButton("WaterPump"))
 			{
-				Debug.Log("WaterPump ACTIVATED");	       
 				waterPump.emit = false;
 			}	
 		}	
