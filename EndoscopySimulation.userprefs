@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Controllers/TrainingController.cs">
     <Files>
       <File FileName="Assets/Scripts/GUI/TrainingTutorial.cs" Line="1" Column="1" />
@@ -28,6 +29,15 @@
             </Node>
           </Node>
         </State>
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GUI\TrainingTutorial.cs">
+    <Files>
+      <File FileName="Assets\Scripts\GUI\TrainingTutorial.cs" Line="122" Column="19" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True" selected="True" />
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
       </Pad>
       <Pad Id="ClassPad">
         <State expanded="True" selected="True" />

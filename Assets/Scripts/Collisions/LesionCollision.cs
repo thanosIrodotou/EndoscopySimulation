@@ -9,10 +9,13 @@ public class LesionCollision : MonoBehaviour
 	private bool isLesion;
 	private string lesionObjectName;
 	private bool success;
+<<<<<<< HEAD
 	private bool waterLesionCase = false;
 	public Texture waterTexture;
 	public Texture normalTexture;
 	private float pauseTime = 0.0f;
+=======
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 	
 	// Use this for initialization
 	void Start () 
@@ -54,6 +57,7 @@ public class LesionCollision : MonoBehaviour
 	void OnTriggerEnter(Collider myTrigger) 
 	{		
 		if (myTrigger.gameObject.name == fpcObject.name)
+<<<<<<< HEAD
 		{
 //			print ("sending...");
 			if (!waterLesionCase)
@@ -106,6 +110,61 @@ public class LesionCollision : MonoBehaviour
 		}
 		else if (name.Contains("ObstacleSphere7"))
 		{
+=======
+		{
+			print ("sending...");	
+			TrainingController.sessionLesions = TrainingController.sessionLesions + 1;	
+			ActOnLesion(gameObject.name);						
+		}
+	}
+	
+	void ActOnLesion (string name)
+	{
+		if (name.Contains("ObstacleSphere1"))
+		{					
+			ObstaclesSet.SendMessage("TurnOnOffLesions", 1);
+			lesionTag = GameObject.Find("LesionTag1");
+			lesionTag.SendMessage("DestroyTag", true);			
+			Destroy(gameObject);	
+		}
+		else if (name.Contains("ObstacleSphere2"))
+		{
+			ObstaclesSet.SendMessage("TurnOnOffLesions", 2);
+			lesionTag = GameObject.Find("LesionTag2");
+			lesionTag.SendMessage("DestroyTag", true);
+			Destroy(gameObject);	
+		}
+		else if (name.Contains("ObstacleSphere3"))
+		{
+			ObstaclesSet.SendMessage("TurnOnOffLesions", 3);
+			//lesionTag = GameObject.Find("LesionTag2");
+			//lesionTag.SendMessage("DestroyTag", true);
+			Destroy(gameObject);	
+		}
+		else if (name.Contains("ObstacleSphere4"))
+		{
+			ObstaclesSet.SendMessage("TurnOnOffLesions", 4);
+			//lesionTag = GameObject.Find("LesionTag2");
+			//lesionTag.SendMessage("DestroyTag", true);
+			Destroy(gameObject);	
+		}
+		else if (name.Contains("ObstacleSphere5"))
+		{
+			ObstaclesSet.SendMessage("TurnOnOffLesions", 5);
+			//lesionTag = GameObject.Find("LesionTag2");
+			//lesionTag.SendMessage("DestroyTag", true);
+			Destroy(gameObject);	
+		}
+		else if (name.Contains("ObstacleSphere6"))
+		{
+			ObstaclesSet.SendMessage("TurnOnOffLesions", 6);
+			//lesionTag = GameObject.Find("LesionTag2");
+			//lesionTag.SendMessage("DestroyTag", true);
+			Destroy(gameObject);	
+		}
+		else if (name.Contains("ObstacleSphere7"))
+		{
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 			//lesionTag = GameObject.Find("LesionTag2");
 			//lesionTag.SendMessage("DestroyTag", true);
 			Destroy(gameObject);	

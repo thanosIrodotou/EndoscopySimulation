@@ -21,12 +21,16 @@ public class TrainingController : MonoBehaviour
 	private bool isTerminated = false;
 	private bool pauseToggle = false;
 	public bool sideCamToggle = false;	
+<<<<<<< HEAD
 	public bool birdsEyeToggle = false;
 	public GUITexture sideCamTexture;	
 	public GUITexture birdsEyeTexture;	
 	private bool isVerticallyStabilised = false;
 	private bool isHorizontallyStabilised = false;
 	public static bool areAllAxisStabilised = false;
+=======
+	public GUITexture sideCamTexture;	
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 
 	void Awake() 
 	{	
@@ -35,7 +39,12 @@ public class TrainingController : MonoBehaviour
 	
 	// Use this for initialization
 	void Start () 
+<<<<<<< HEAD
 	{					
+=======
+	{		
+		Time.timeScale = 1;		
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 		startTime = Time.time;
 		sessionLength = 0f;
 		sessionLesions = 0;
@@ -68,7 +77,11 @@ public class TrainingController : MonoBehaviour
 			hitEscape = true;
 			pauseToggle = true;
 			if(pauseToggle)
+<<<<<<< HEAD
 			Time.timeScale = 0;			
+=======
+			Time.timeScale = 0;
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 		}	
 	
 		if (Input.GetKeyDown(KeyCode.Space)  || Input.GetButtonDown("SideCam"))
@@ -164,7 +177,11 @@ public class TrainingController : MonoBehaviour
 			GUILayout.FlexibleSpace();
 			
 			GUILayout.Label("Discomfort Level:");
+<<<<<<< HEAD
 			GUILayout.Box(sessionDiscomfortLevel.ToString("F2"));		
+=======
+			GUILayout.Box(sessionDiscomfortLevel.ToString());		
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 			
 			GUILayout.EndHorizontal();
 			

@@ -22,7 +22,11 @@ public class RaycastCollision : MonoBehaviour
 		
 		Ray collisionRay = new Ray(objectTransform.transform.position, fwd);
 		
+<<<<<<< HEAD
    		Debug.DrawRay(objectTransform.transform.position, fwd * 1, Color.red);
+=======
+   		//Debug.DrawRay(objectTransform.transform.position, fwd * 1, Color.red);
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 		
 		if (!collided)
 		{
@@ -30,8 +34,12 @@ public class RaycastCollision : MonoBehaviour
 			{
 				if (hit.collider.tag == "esophagusSideCollision")
 				{
+<<<<<<< HEAD
 					if (Time.timeScale != 0.0f)
 						showBlood();	
+=======
+					showBlood();	
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
 				}				
 			}
 		}

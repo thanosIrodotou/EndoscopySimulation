@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
  
 [RequireComponent (typeof (GUIText))]
+<<<<<<< HEAD
 public class ObjectTagLabel : MonoBehaviour 
 {
  
@@ -14,6 +15,19 @@ public class ObjectTagLabel : MonoBehaviour
 	Camera cam ;
 	Transform thisTransform;
 	Transform camTransform;
+=======
+public class ObjectTagLabel : MonoBehaviour {
+ 
+public Transform target;  // Object that this label should follow
+public Vector3 offset = Vector3.up;    // Units in world space to offset; 1 unit above object by default
+public bool clampToScreen = false;  // If true, label will be visible even if object is off screen
+public float clampBorderSize = 0.05f;  // How much viewport space to leave at the borders when a label is being clamped
+public bool useMainCamera = true;   // Use the camera tagged MainCamera
+public Camera cameraToUse ;   // Only use this if useMainCamera is false
+Camera cam ;
+Transform thisTransform;
+Transform camTransform;
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
  
 	void Start () 
     {
@@ -23,7 +37,12 @@ public class ObjectTagLabel : MonoBehaviour
 	    else
 	        cam = cameraToUse;
 	    camTransform = cam.transform;
+<<<<<<< HEAD
 	} 
+=======
+	}
+ 
+>>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
  
     void Update()
     {
