@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: 8216a530f7c2e49b18efef7299bfa5ba
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: esophagus
+    100004: intestines
+    100006: liver
+    100008: Mesh2
+    100010: Mesh23
+    100012: Mesh24
+    100014: Mesh25
+    100016: Mesh5
+    100018: Mesh6
+    100020: stomach
+    400000: //RootNode
+    400002: esophagus
+    400004: intestines
+    400006: liver
+    400008: Mesh2
+    400010: Mesh23
+    400012: Mesh24
+    400014: Mesh25
+    400016: Mesh5
+    400018: Mesh6
+    400020: stomach
+    2300000: esophagus
+    2300002: intestines
+    2300004: liver
+    2300006: Mesh2
+    2300008: Mesh23
+    2300010: Mesh24
+    2300012: Mesh25
+    2300014: Mesh5
+    2300016: Mesh6
+    2300018: stomach
+    3300000: esophagus
+    3300002: intestines
+    3300004: liver
+    3300006: Mesh2
+    3300008: Mesh23
+    3300010: Mesh24
+    3300012: Mesh25
+    3300014: Mesh5
+    3300016: Mesh6
+    3300018: stomach
+    4300000: Mesh24
+    4300002: Mesh25
+    4300004: Mesh23
+    4300006: liver
+    4300008: Mesh5
+    4300010: Mesh2
+    4300012: Mesh6
+    4300014: stomach
+    4300016: esophagus
+    4300018: intestines
+    6400000: esophagus
+    6400002: intestines
+    6400004: liver
+    6400006: Mesh2
+    6400008: Mesh23
+    6400010: Mesh24
+    6400012: Mesh25
+    6400014: Mesh5
+    6400016: Mesh6
+    6400018: stomach
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 180
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

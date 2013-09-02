@@ -3,7 +3,7 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - esophagusSideCollision
+  - TractCollision
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -16,10 +16,15 @@ TagManager:
   User Layer 8: tobeSeen
 <<<<<<< HEAD
   User Layer 9: EndoscopeTrail
+  User Layer 10: lesions
+=======
+<<<<<<< HEAD
+  User Layer 9: EndoscopeTrail
 =======
   User Layer 9: Lesions
 >>>>>>> 1fa3b9e207dbce138dbaf5585b15b6ee98326c4f
   User Layer 10: 
+>>>>>>> 9f1edfb2b5abdad31c478054209af1964fca0dc9
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 

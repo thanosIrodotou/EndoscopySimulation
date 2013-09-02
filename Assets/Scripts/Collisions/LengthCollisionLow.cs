@@ -1,6 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
+/**
+ * This class checks for collision with invisible trigger gameobjects in the scene to calculate the endoscope's current length in the Low Realism simulation scenario.
+ * See LengthCollisionTr.cs class for more information.
+ * \author Athanasios Irodotou 2013
+ */
 public class LengthCollisionLow : MonoBehaviour 
 {
 	public GameObject fpcObject;
@@ -24,25 +29,21 @@ public class LengthCollisionLow : MonoBehaviour
 			
 			if (gameObject.name == "DistanceCollider1")
 			{
-				//print ("sending length1");	
 				SimulationControllerLow.sessionLength = SimulationControllerLow.sessionLength + 15;
 				Destroy(gameObject);
 			} 
 			else if (gameObject.name == "DistanceCollider2")
 			{
-				//print ("sending length2");	
 				SimulationControllerLow.sessionLength = SimulationControllerLow.sessionLength + 25;
 				Destroy(gameObject);
 			}
 			else if (gameObject.name == "DistanceCollider3")
 			{
-				//print ("sending length3");	
 				SimulationControllerLow.sessionLength = SimulationControllerLow.sessionLength + 25;
 				Destroy(gameObject);
 			}
 			else if (gameObject.name == "DistanceCollider4")
 			{
-				//print ("sending length4");	
 				SimulationControllerLow.sessionLength = SimulationControllerLow.sessionLength + 26;
 				Destroy(gameObject);
 			}				

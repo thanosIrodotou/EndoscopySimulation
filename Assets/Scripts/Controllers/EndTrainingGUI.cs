@@ -1,31 +1,41 @@
 using UnityEngine;
 using System.Collections;
 
+/**
+ * This is the class which provides the functionality visible in the EndTrainingScene which is loaded when Training is finished.
+ * \author Athanasios Irodotou 2013
+ */
 public class EndTrainingGUI : MonoBehaviour 
 {
 	
-	public GUISkin mySkin;
-	private Rect windowRect = new Rect((Screen.width - 300)/2, (Screen.height - 400)/2, 0, 0);
-	public GUIStyle titleStyle;
-	public GUIStyle bodyStyle;
+	public GUISkin mySkin; /**< The mySkin variable is initialised in the Editor using a free, Unity provided set of GUI skins. */
+	private Rect windowRect = new Rect((Screen.width - 300)/2, (Screen.height - 400)/2, 0, 0); /**< Initialises the dimensions of a new Rect to display a pop up menu which displays statistics for the previous as well as all training sessions. */
+	public GUIStyle titleStyle; /**<  The style variable creates a new component in Unity's Editor which provides the ability to customise a variety of styling options for selected GUI elemements. Font type, size, color and other information are some of the styling options. This variable is used to set the title's text label style. */
+	public GUIStyle bodyStyle; /**<  The style variable creates a new component in Unity's Editor which provides the ability to customise a variety of styling options for selected GUI elemements. Font type, size, color and other information are some of the styling options. This variable is used to set the body's text label style. */
 
 	// Use this for initialization
 	void Start () 
 	{
-		//Screen.SetResolution(1920, 1080, true, 60);	
-		//print (Screen.width);
+	
 	}
 	
 	void Awake () 
 	{
 	}
 	
+	
 	// Update is called once per frame
+	
 	void Update () 
 	{
 	
 	}	
 	
+	
+	/**
+	 * Another MonoBehaviour inherited method loaded each frame to provide the necessary GUI drawcalls to check for GUI elements' changes and display them.
+	 * This method provides all GUI elements. It draws a series of buttons to let the user restart the training scenario, select a simulation scenario, go back to main menu, etc.
+	 */		
 	void OnGUI () 
 	{
 		GUI.skin = mySkin;								
@@ -63,6 +73,12 @@ public class EndTrainingGUI : MonoBehaviour
 		GUILayout.EndArea();
 	}
 	
+	
+	/**
+	 * The popUp method displays a new popup window to the user when called. 
+	 * It presents a collection of statistics recorded in the previous training session.
+	 * \param windowID a unique integer number for the window's id.
+	 */	
 	void popUp(int windowID) 
 	{
 		GUILayout.Label("Training Statistics", titleStyle);	

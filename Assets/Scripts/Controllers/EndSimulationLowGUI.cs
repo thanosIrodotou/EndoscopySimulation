@@ -4,12 +4,12 @@ using System.Collections;
 public class EndSimulationLowGUI : MonoBehaviour 
 {
 	
-	public GUISkin mySkin;
-	private Rect windowRect = new Rect((Screen.width - 300)/2, (Screen.height - 400)/2, 0, 0);
-	public GUIStyle titleStyle;
-	public GUIStyle bodyStyle;
-	private bool togglePopUp = false;
-	private string statsButtonText = "View overall statistics";
+	public GUISkin mySkin; /**< The mySkin variable is initialised in the Editor using a free, Unity provided set of GUI skins. */
+	private Rect windowRect = new Rect((Screen.width - 300)/2, (Screen.height - 400)/2, 0, 0); /**< Initialises the dimensions of a new Rect to display a pop up menu which displays statistics for the previous as well as all training sessions. */
+	public GUIStyle titleStyle; /**<  The style variable creates a new component in Unity's Editor which provides the ability to customise a variety of styling options for selected GUI elemements. Font type, size, color and other information are some of the styling options. This variable is used to set the title's text label style. */
+	public GUIStyle bodyStyle; /**<  The style variable creates a new component in Unity's Editor which provides the ability to customise a variety of styling options for selected GUI elemements. Font type, size, color and other information are some of the styling options. This variable is used to set the body's text label style. */
+	private bool togglePopUp = false; /**< A boolean variable which is true if the session's statistics or the overall statistics are shown. */
+	private string statsButtonText = "View overall statistics"; /**< A string value to toggle the view statistics button text to either "View overall statistics" or "View last statistics". */
 
 	// Use this for initialization
 	void Start () 
@@ -20,6 +20,7 @@ public class EndSimulationLowGUI : MonoBehaviour
 	
 	void Awake () 
 	{
+		
 	}
 	
 	// Update is called once per frame
@@ -28,6 +29,12 @@ public class EndSimulationLowGUI : MonoBehaviour
 	
 	}	
 	
+	
+	/**
+	 * Another MonoBehaviour inherited method loaded each frame to provide the necessary GUI drawcalls to check for GUI elements' changes and display them.
+	 * This method provides all GUI elements. It draws a series of buttons to let the user restart the scenario, select a different one, quit, etc. 
+	 * It also displays a window including either last operation's statistics or overall statistics for this scenario.
+	 */		
 	void OnGUI () 
 	{
 		GUI.skin = mySkin;								
@@ -90,19 +97,31 @@ public class EndSimulationLowGUI : MonoBehaviour
 		GUILayout.EndArea();
 	}
 	
+	
+	/**
+	 * The popUp method displays a new popup window to the user when called. 
+	 * It presents a collection of statistics recorded in the last simulation operation.
+	 * \param windowID a unique integer number for the window's id.
+	 */		
 	void popUp(int windowID) 
 	{
 		GUILayout.Label("Last Operation Statistics", titleStyle);	
 		GUILayout.Space(20);
-		GUILayout.Label("Total Time: " + PlayerPrefs.GetString("LowTimeSpent"), bodyStyle);
+		GUILayout.Label("Total Time: " + PlayerPrefs.GetString("LowSessionTimeSpent"), bodyStyle);
 		GUILayout.Space(5);		
-		GUILayout.Label("Length Examined: " +  PlayerPrefs.GetFloat("LowSessionLengthTraveled") + " cm", bodyStyle);
+		GUILayout.Label("Length Examined: " + PlayerPrefs.GetFloat("LowSessionLengthTraveled") + " cm", bodyStyle);
 		GUILayout.Space(5);
 		GUILayout.Label("Lesions Discovered: " + PlayerPrefs.GetInt("LowSessionLesions"), bodyStyle);
 		GUILayout.Space(5);
-		GUILayout.Label("Patient Discomfort Estimate (1-10): " + PlayerPrefs.GetFloat("LowSessionDiscomfort"), bodyStyle);
+		GUILayout.Label("Patient Discomfort Estimate (1-10): " + PlayerPrefs.GetFloat("LowSessionDiscomfort").ToString("F2"), bodyStyle);
 	}
 	
+	
+	/**
+	 * The statsPopUp method displays a new popup window to the user when called. 
+	 * It presents a summary of statistics for all simulation sessions in this scenario (Low).
+	 * \param windowID a unique integer number for the window's id.
+	 */		
 	void statsPopUp(int windowID) 
 	{
 		
@@ -114,13 +133,13 @@ public class EndSimulationLowGUI : MonoBehaviour
 			GUILayout.Space(5);
 			GUILayout.Label("Current Scenario: " + PlayerPrefs.GetString("LowCurrentSimScenario"), bodyStyle);			
 			GUILayout.Space(5);
-			GUILayout.Label("Simulation duration: " + PlayerPrefs.GetString("LowTimeSpent"), bodyStyle);
+			GUILayout.Label("Overall duration: " + PlayerPrefs.GetString("LowTimeSpent"), bodyStyle);
 			GUILayout.Space(5);
 			GUILayout.Label("Length examined: " + PlayerPrefs.GetFloat("LowLengthTraveled") + " cm", bodyStyle);
 			GUILayout.Space(5);
 			GUILayout.Label("Lesions discovered: " + PlayerPrefs.GetInt("LowLesions"), bodyStyle);
 			GUILayout.Space(5);
-			GUILayout.Label("Patient discomfort Estimate (1-10): " + PlayerPrefs.GetFloat("LowDiscomfort"), bodyStyle);
+			GUILayout.Label("Patient discomfort Estimate (1-10): " + PlayerPrefs.GetFloat("LowDiscomfort").ToString("F2"), bodyStyle);
 		} 
 		else 
 		{
